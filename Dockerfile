@@ -9,7 +9,7 @@ RUN apt-get update \
     && rm -rf /var/cache/apt/* \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/locatime \
     && echo "${TZ}" > /etc/timezone \
-    && curl -sSL https://verystar.oss-cn-hangzhou.aliyuncs.com/software/SonarQube/sonar-scanner-cli-${VERSION}-linux.zip -o sonar-scanner.zip \
+    && curl -sSL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${VERSION}-linux.zip -o sonar-scanner.zip \
     && unzip sonar-scanner.zip \
     && mv sonar-scanner-${VERSION}-linux  /usr/local/sonar-scanner \
     && rm -r sonar-scanner.zip
