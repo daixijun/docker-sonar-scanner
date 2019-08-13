@@ -19,4 +19,6 @@ RUN apt-get update \
 ENV SONAR_RUNNER_HOME=/usr/local/sonar-scanner/
 ENV PATH=$PATH:${SONAR_RUNNER_HOME}/bin
 
-CMD ["sonar-scanner", "--version"]
+ENTRYPOINT ["sonar-scanner"]
+
+CMD ["--version"]
