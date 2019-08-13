@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
 LABEL MAINTAINER="Xijun Dai <daixijun1990@gmail.com>"
 
-ENV VERSION=3.3.0.1492
+ENV VERSION=4.0.0.1744
 ENV TZ=Asia/Shanghai
 
 RUN apt-get update \
