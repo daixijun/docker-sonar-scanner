@@ -1,0 +1,15 @@
+---
+kind: pipeline
+name: default
+
+steps:
+  - name: build-and-push-image
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      repo: daixijun1990/sonar-scanner
+      auto_tag: true
+
