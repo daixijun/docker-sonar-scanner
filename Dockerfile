@@ -1,17 +1,17 @@
 FROM debian:stretch-slim
 LABEL MAINTAINER="Xijun Dai <daixijun1990@gmail.com>"
 
-ENV VERSION=4.0.0.1744
+ENV VERSION=4.1.0.1829
 ENV TZ=Asia/Shanghai
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y ca-certificates curl git unzip \
-    && curl -sL https://deb.nodesource.com/setup_11.x | bash - \
+    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
     && apt-get install --no-install-recommends -y nodejs \
     && rm -rf /var/cache/apt/* \
     && ln -sf /usr/share/zoneinfo/${TZ} /etc/locatime \
-    && echo "${TZ}" > /etc/timezone \
-    && curl -sSL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${VERSION}-linux.zip -o sonar-scanner.zip \
+    && echo "${TZ}" > /etc/timezone
+RUN curl -sSL https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${VERSION}-linux.zip -o sonar-scanner.zip \
     && unzip sonar-scanner.zip \
     && mv sonar-scanner-${VERSION}-linux  /usr/local/sonar-scanner \
     && rm -r sonar-scanner.zip
